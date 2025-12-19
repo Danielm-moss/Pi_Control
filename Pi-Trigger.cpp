@@ -2,16 +2,18 @@
 #include <gpiod.hpp>
 #include <thread>
 #include <chrono>
-
 using namespace std;
 
-int main() {
+// user assigned variables
+const unsigned time[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};  // Exposure times in microseconds
+// end of user assigned variables
 
-    const char* CHIP = "/dev/gpiochip4";
-    const unsigned BUTTON = 21;   // Input pin - photoelectric sensor on rail
-    const unsigned FLASH = 22;    // Output pin - flash trigger (HIGH during exposure)
-    const unsigned time[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};  // Exposure times in microseconds
-    const int time_array_size = sizeof(time) / sizeof(time[0]);
+const char* CHIP = "/dev/gpiochip4";
+const unsigned BUTTON = 21;   // Input pin - photoelectric sensor on rail
+const unsigned FLASH = 22;    // Output pin - flash trigger (HIGH during exposure)
+const int time_array_size = sizeof(time) / sizeof(time[0]);
+
+int main() {
 
     gpiod::chip chip{CHIP};
 
