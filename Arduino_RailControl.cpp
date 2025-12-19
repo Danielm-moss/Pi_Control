@@ -18,11 +18,11 @@ void setup() {
 
   int laps;
   if(EXP_TIMES % 2 == 0){
-    LAPS = EXP_TIMES / 2;
+    laps = exp_times / 2;
   }
 
   else{
-    LAPS = (EXP_TIMES + 1) / 2;
+    laps = (exp_times + 1) / 2;
   }
 
   delay(2000); // delay to ensure setup is complete
