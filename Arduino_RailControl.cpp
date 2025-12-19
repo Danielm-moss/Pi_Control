@@ -1,10 +1,12 @@
 #include <FastAccelStepper.h>
 
-const int EXP_TIMES = 10;
+// user variables
+const int exp_times = 10;
+// end of user variables
 
 const int STEP_PIN = 9;
 const int DIR_PIN  = 7;
-const long distance = -4880; //distance in motor steps
+const long DISTANCE = -4880; //distance in motor steps
 
 const uint32_t MAX_SPEED = 4500;
 const uint32_t ACCEL = 4500;
@@ -14,7 +16,7 @@ FastAccelStepper *stepper = nullptr;
 
 void setup() {
 
-  int LAPS;
+  int laps;
   if(EXP_TIMES % 2 == 0){
     LAPS = EXP_TIMES / 2;
   }
@@ -23,7 +25,7 @@ void setup() {
     LAPS = (EXP_TIMES + 1) / 2;
   }
 
-  delay(2000);
+  delay(2000); // delay to ensure setup is complete
   engine.init();
 
   stepper = engine.stepperConnectToPin(STEP_PIN);
